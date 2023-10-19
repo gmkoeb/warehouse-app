@@ -2,7 +2,7 @@
 
 <h2>Galpões</h2>
 <% @warehouses.each do |warehouse| %>
-  <h3><%= warehouse.name %></h3>
+  <%= link_to warehouse.name, warehouse_path(warehouse.id) %>
   <ul>
     <li>
       Código: <%= warehouse.code %>
