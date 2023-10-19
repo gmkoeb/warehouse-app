@@ -1,1 +1,17 @@
 <h1>Galpões & Estoque</h1>
+
+<h2>Galpões</h2>
+<% @warehouses.each do |warehouse| %>
+  <h3><%= warehouse.name %></h3>
+  <ul>
+    <li>
+      Código: <%= warehouse.code %>
+    </li>
+    <li>
+      Cidade: <%= warehouse.city %>
+    </li>
+    <li>
+      <%= warehouse.area %> m²
+    </li>
+  </ul>
+<%end%>

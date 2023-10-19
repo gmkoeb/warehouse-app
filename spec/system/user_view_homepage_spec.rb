@@ -23,12 +23,12 @@ describe 'User visits homepage' do
     expect(page).to have_content('Rio')
     expect(page).to have_content('Código: SDU')
     expect(page).to have_content('Cidade: Rio de Janeiro')
-    expect(page).to have_content('60.000 m²')
+    expect(page).to have_content('60000 m²')
 
     expect(page).to have_content('Maceio')
     expect(page).to have_content('Código: MCZ')
     expect(page).to have_content('Cidade: Maceio')
-    expect(page).to have_content('50.000 m²')
+    expect(page).to have_content('50000 m²')
 
   end
 end
