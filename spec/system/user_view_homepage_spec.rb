@@ -13,8 +13,12 @@ describe 'User visits homepage' do
 
   it 'and sees registered warehouses' do
     # Arrange
-    Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area:60_000)
-    Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', area:50_000)
+    Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', 
+                    area:60_000, address: 'Rua das Flores, 302', 
+                    cep: '31412', description: 'Galpão localizado na rua das flores na cidade do Rio de Janeiro' )
+    Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', 
+                    area:50_000, address: 'Rua do Aeroporto, 20', 
+                    cep: '73521', description: 'Galpão localizado no aeroporto de Maceio.')
 
     # Act
     visit '/'

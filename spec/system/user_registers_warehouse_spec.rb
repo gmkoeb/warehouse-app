@@ -38,4 +38,19 @@ describe 'user registers new warehouse' do
     expect(page).to have_content 'RIO'
     expect(page).to have_content '32000 m²'
   end
+
+  it 'with incomplete data' do
+    # Arrange
+
+    # Act
+    visit root_path
+    click_on 'Cadastrar Galpão'
+
+    fill_in 'Nome', with: ''
+    fill_in 'Descrição', with: ''
+
+    click_on 'Enviar'
+    # Assert
+    expect(page).to have_content 'Falha ao cadastrar galpão.'
+  end
 end

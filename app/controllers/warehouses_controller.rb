@@ -4,6 +4,7 @@ class WarehousesController < ApplicationController
   end
 
   def new
+    @new_warehouse = Warehouse.new
   end
 
   def create
@@ -11,10 +12,14 @@ class WarehousesController < ApplicationController
                                                         :description, :address, :cep, :area )
                                                         # Strong parameters
 
-    new_warehouse = Warehouse.new(warehouse_params)
+    @new_warehouse = Warehouse.new(warehouse_params)
 
-    new_warehouse.save()
-
-    redirect_to root_path, notice: 'Galpão cadastrado com sucesso!'
+    if @new_warehouse.save()
+      redirect_to root_path, notice: 'Galpão cadastrado com sucesso!'
+    else
+      flash.now[:notice] = 'Falha ao cadastrar galpão.'
+      render 'new'
+    end
+    
   end
 end
