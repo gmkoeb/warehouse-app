@@ -52,5 +52,7 @@ describe 'user registers new warehouse' do
     click_on 'Enviar'
     # Assert
     expect(page).to have_content 'Falha ao cadastrar galpão.'
+    expect(page).to have_content 'Nome não pode ficar em branco'
+    expect(page).to have_content 'Descrição não pode ficar em branco'
   end
 end
