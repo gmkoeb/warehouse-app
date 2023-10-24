@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'user registers new warehouse' do
+describe 'User registers new warehouse' do
   it 'from home page' do
     # Arrange
     
