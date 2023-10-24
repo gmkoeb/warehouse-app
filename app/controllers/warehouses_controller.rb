@@ -1,6 +1,6 @@
 class WarehousesController < ApplicationController
   def show
-    @warehouse = Warehouse.find(params[:id])
+    @warehouse = Warehouse.friendly.find(params[:id])
   end
 
   def new

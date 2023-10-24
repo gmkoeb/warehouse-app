@@ -5,7 +5,7 @@
   </div>
   <% @warehouses.each do |warehouse| %>
     <div>      
-      <h3><%= link_to warehouse.name, warehouse_path(warehouse.id) %></h3>
+      <h3><%= link_to warehouse.name, warehouse_path(warehouse.name.parameterize) %></h3>
       <dl>
         <dt>Código:</dt>
         <dd><%= warehouse.code %></dd>
