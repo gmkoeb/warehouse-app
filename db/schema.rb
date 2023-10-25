@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_24_161316) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_25_175003) do
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -20,6 +20,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_161316) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string "corporate_name"
+    t.string "brand_name"
+    t.string "registration_number"
+    t.string "full_address"
+    t.string "city"
+    t.string "state"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_suppliers_on_slug", unique: true
   end
 
   create_table "warehouses", force: :cascade do |t|
