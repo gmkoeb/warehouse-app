@@ -1,0 +1,22 @@
+<h1>Fornecedores</h1>
+
+<% if @suppliers.empty? %>
+  <h2>Não existe nenhum fornecedor cadastrado.</h2>
+<% end %>
+
+<table>
+  <thead>
+    <th>Nome</th>
+    <th>Endereço</th>
+    <th>Email</th>
+  </thead>
+  <tbody>
+  <% @suppliers.each do |supplier| %>
+  <tr>
+    <td><%= supplier.brand_name %></td>
+    <td><%= supplier.full_address %></td>
+    <td><%= supplier.email %></td>
+  </tr>
+  <%end%>
+  </tbody>
+</table>
