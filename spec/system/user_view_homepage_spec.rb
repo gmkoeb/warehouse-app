@@ -5,10 +5,20 @@ describe 'User visits homepage' do
     # Arrange
 
     # Act
-    visit '/'
+    visit root_path
 
     # Assert
     expect(page).to have_content 'Galpões & Estoque'
+  end
+
+  it 'and sees home button' do
+    # Arrange 
+
+    # Act
+    visit root_path
+
+    # Assert
+    expect(page).to have_content 'Home'
   end
 
   it 'and sees registered warehouses' do
@@ -21,7 +31,7 @@ describe 'User visits homepage' do
                     cep: '73521', description: 'Galpão localizado no aeroporto de Maceio.')
 
     # Act
-    visit '/'
+    visit root_path
 
     # Assert
     expect(page).not_to have_content('Não existem galpões cadastrados.')
@@ -41,7 +51,7 @@ describe 'User visits homepage' do
     # Arrange
 
     # Act
-    visit '/'
+    visit root_path
 
     # Assert
     expect(page).to have_content 'Não existem galpões cadastrados.'
