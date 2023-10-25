@@ -8,7 +8,7 @@ describe 'User sees details of a warehouse' do
                       description: 'Galpão destinado para cargas internacionais.')
     w.save
     # Act
-    visit '/'
+    visit root_path
     click_on 'Aeroporto SP'
 
     # Assert
@@ -33,10 +33,10 @@ describe 'User sees details of a warehouse' do
     click_on 'Voltar'
 
     # Assert
-    expect(current_path).to eq '/'
+    expect(current_path).to eq root_path
   end
 
-  it 'and goes back to homepage by clicking Home button within navbar' do
+  it 'and goes back to homepage by clicking Home link within navbar' do
     # Arrange
     w = Warehouse.new(name: 'Aeroporto SP', code: 'GRU', city: 'Guarulhos', area: 100_000,
     address: 'Avenida do Aeroporto, 1000', cep: '15000-000', 
@@ -50,6 +50,6 @@ describe 'User sees details of a warehouse' do
       click_on 'Home'
     end   
     # Assert
-    expect(current_path).to eq '/'
+    expect(current_path).to eq root_path
   end
 end
