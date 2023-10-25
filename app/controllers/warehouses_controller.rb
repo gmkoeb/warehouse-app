@@ -1,7 +1,7 @@
 class WarehousesController < ApplicationController
-  before_action :set_warehouse, only: [:show, :edit, :update]
+  before_action :set_warehouse, only: [:show, :edit, :update, :destroy]
   before_action :warehouse_params, only: [:create, :update]
-  
+
   def show; end
 
   def new
@@ -32,6 +32,11 @@ class WarehousesController < ApplicationController
     end
   end
 
+  def destroy
+    @warehouse.delete
+    redirect_to root_path, notice: 'Galpão Removido com Sucesso'
+  end
+  
   private
 
   def set_warehouse
