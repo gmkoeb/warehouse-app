@@ -6,7 +6,7 @@ describe 'User sees suppliers' do
 
     # Act
     visit root_path
-    within('nav') do
+    within 'nav' do
       click_on 'Fornecedores'
     end
     # Assert
@@ -22,7 +22,7 @@ describe 'User sees suppliers' do
     full_address: "China Town, 1231", city: "Nova Iorque", state: "NY", email: "red@dragon.com" )
     # Act
     visit root_path
-    within('nav') do
+    within 'nav' do
       click_on 'Fornecedores'
     end
     # Assert
@@ -32,6 +32,7 @@ describe 'User sees suppliers' do
     expect(page).to have_content 'China Town, 1231'
     expect(page).to have_content 'red@dragon.com'
     expect(page).to have_content 'logi@tech.com'
+    expect(page).to_not have_content 'Não existe nenhum fornecedor cadastrado.'
   end
 
   it 'there isnt any suppliers registered' do
@@ -39,10 +40,13 @@ describe 'User sees suppliers' do
 
     # Act
     visit root_path
-    within('nav') do
+    within 'nav' do
       click_on 'Fornecedores'
     end
     # Assert
     expect(page).to have_content 'Não existe nenhum fornecedor cadastrado.'
+    expect(page).to_not have_content 'Nome'
+    expect(page).to_not have_content 'Endereço'
+    expect(page).to_not have_content 'Email'
   end
 end

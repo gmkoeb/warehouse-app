@@ -1,9 +1,8 @@
 <h1>Fornecedores</h1>
 
 <% if @suppliers.empty? %>
-  <h2>Não existe nenhum fornecedor cadastrado.</h2>
-<% end %>
-
+<h2>Não existe nenhum fornecedor cadastrado.</h2>
+<% else %>
 <table>
   <thead>
     <th>Nome</th>
@@ -20,3 +19,7 @@
   <%end%>
   </tbody>
 </table>
+<% end %>
+
+<%= link_to 'Cadastrar Fornecedor', new_supplier_path %>
+
