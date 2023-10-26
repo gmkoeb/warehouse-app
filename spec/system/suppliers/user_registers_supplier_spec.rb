@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User registers a new supplier' do
-  it 'from homepage' do
+  it 'from navigation menu' do
     # Arrange
 
     # Act

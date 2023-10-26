@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User edits a supplier' do
-  it 'from homepage' do
+  it 'from navigation menu' do
     # Arrange
     supplier = Supplier.create!(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
                                full_address: "Av Brasil, 1231", city: "São Paulo", state: "SP", email: "logi@tech.com" )
