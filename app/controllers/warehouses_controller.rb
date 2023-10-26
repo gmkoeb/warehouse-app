@@ -17,15 +17,13 @@ class WarehousesController < ApplicationController
       flash.now[:notice] = 'Falha ao cadastrar galpão.'
       render 'new'
     end
-    
   end
 
   def edit;end
 
   def update
     if @warehouse.update(warehouse_params)
-      @warehouse = Warehouse.update(slug: params[:warehouse][:name].parameterize)
-      redirect_to warehouse_path(@warehouse.first.name.parameterize), notice: 'Galpão atualizado com sucesso! 😊'
+      redirect_to warehouse_path(@warehouse.name.parameterize), notice: 'Galpão atualizado com sucesso! 😊'
     else
       flash.now[:notice] = 'Não foi possível atualizar o galpão. 😢'
       render 'edit' 
