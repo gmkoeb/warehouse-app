@@ -5,4 +5,6 @@ class ProductModel < ApplicationRecord
     name_changed?
   end
   belongs_to :supplier
+
+  validates :name, :sku, presence: true
 end
