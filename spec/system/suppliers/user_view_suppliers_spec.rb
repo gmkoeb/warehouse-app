@@ -22,9 +22,7 @@ describe 'User sees suppliers' do
     full_address: "China Town, 1231", city: "Nova Iorque", state: "NY", email: "red@dragon.com" )
     # Act
     visit root_path
-    within 'nav' do
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     # Assert
     expect(page).to have_content 'Logitech'
     expect(page).to have_content 'RedDragon'
@@ -40,9 +38,7 @@ describe 'User sees suppliers' do
 
     # Act
     visit root_path
-    within 'nav' do
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     # Assert
     expect(page).to have_content 'Não existe nenhum fornecedor cadastrado.'
     expect(page).to_not have_content 'Nome'

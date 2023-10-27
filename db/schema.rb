@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_26_185334) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_27_142511) do
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -32,6 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_26_185334) do
     t.integer "supplier_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_product_models_on_slug", unique: true
     t.index ["supplier_id"], name: "index_product_models_on_supplier_id"
   end
 

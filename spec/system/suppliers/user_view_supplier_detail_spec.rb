@@ -30,9 +30,7 @@ describe 'User view specific supplier detail' do
 
     # Act
     visit root_path
-    within 'nav' do
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     click_on 'Logitech'
     click_on 'Voltar'
 
@@ -47,9 +45,7 @@ describe 'User view specific supplier detail' do
 
     # Act
     visit root_path
-    within 'nav' do
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     click_on 'Logitech'
     within 'nav' do
       click_on 'Home'

@@ -29,9 +29,7 @@ describe 'User edits a supplier' do
                                full_address: "Av Brasil, 1231", city: "São Paulo", state: "SP", email: "logi@tech.com" )
     # Act
     visit root_path
-    within 'nav' do 
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     click_on 'Logitech'
     click_on 'Editar'
     expect(current_path).to eq edit_supplier_path('logitech')
@@ -60,9 +58,7 @@ describe 'User edits a supplier' do
                                full_address: "Av Brasil, 1231", city: "São Paulo", state: "SP", email: "logi@tech.com" )
     # Act
     visit root_path
-    within 'nav' do 
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     click_on 'Logitech'
     click_on 'Editar'
     expect(current_path).to eq edit_supplier_path('logitech')

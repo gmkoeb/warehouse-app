@@ -25,9 +25,7 @@ describe 'User registers a new supplier' do
     
     # Act
     visit root_path
-    within 'nav' do
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     click_on 'Cadastrar Fornecedor'
     fill_in 'Nome corporativo', with: 'Shopee LTDA'
     fill_in 'Nome da marca', with: 'Shopee'
@@ -50,9 +48,7 @@ describe 'User registers a new supplier' do
     
     # Act
     visit root_path
-    within 'nav' do
-      click_on 'Fornecedores'
-    end
+    click_on 'Fornecedores'
     click_on 'Cadastrar Fornecedor'
     fill_in 'Nome corporativo', with: ''
     fill_in 'Nome da marca', with: 'Shopee'
