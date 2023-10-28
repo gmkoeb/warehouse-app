@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Supplier, type: :model do
-  describe 'valid?' do
+  describe '#valid?' do
     it 'returns true when all fields are filled' do
       # Arrange
       new_supplier = Supplier.new(corporate_name: 'Razer Eletronics', brand_name: 'Razer', registration_number: '131341', 
