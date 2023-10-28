@@ -8,9 +8,11 @@ describe 'User registers a product model' do
                                 city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
     supplier_2 = Supplier.create!(brand_name: 'LG', corporate_name: 'LG do Brasil LTDA',
                                 registration_number: '34242151', full_address: 'Av Nacoes Unidas, 1013',
-                                city: 'São Paulo', state: 'SP', email: 'lgbrasil@lg.com.br')                            
+                                city: 'São Paulo', state: 'SP', email: 'lgbrasil@lg.com.br')                 
 
+    user = User.create!(name: 'Gabriel', email: 'gmkoeb@gmail.com', password: 'password')
     # Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'
@@ -38,9 +40,11 @@ describe 'User registers a product model' do
                                 city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
     supplier_2 = Supplier.create!(brand_name: 'LG', corporate_name: 'LG do Brasil LTDA',
                                 registration_number: '34242151', full_address: 'Av Nacoes Unidas, 1013',
-                                city: 'São Paulo', state: 'SP', email: 'lgbrasil@lg.com.br')                            
+                                city: 'São Paulo', state: 'SP', email: 'lgbrasil@lg.com.br')            
+    user = User.create!(name: 'Gabriel', email: 'gmkoeb@gmail.com', password: 'password')                
 
     # Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'

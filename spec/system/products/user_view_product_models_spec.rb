@@ -1,10 +1,23 @@
 require 'rails_helper'
-
 describe 'User sees product models' do
+
+  it 'if hes authenticated' do
+    # Arrange
+
+    # Act
+    visit root_path
+    within 'nav' do
+      click_on 'Modelos de Produtos'
+    end
+    # Assert
+    expect(current_path).to eq new_user_session_path
+  end
+
   it 'from navigation menu' do
     # Arrange
-    
+    user = User.create!(name: 'Gabriel', email: 'gmkoeb@gmail.com', password: 'password')
     # Act
+    login_as(user) # Method imported from devise helpers
     visit root_path
     within 'nav' do
       click_on 'Modelos de Produtos'
@@ -24,7 +37,10 @@ describe 'User sees product models' do
 
     ProductModel.create!(name: 'Notebook Galaxy Book3 Ultra', weight: 3000, width: 30, height: 35, depth: 20, 
                          sku: 'NOTE-SAMSU-PCO900', supplier: supplier)
+
+    user = User.create!(name: 'Gabriel', email: 'gmkoeb@gmail.com', password: 'password')              
     # Act
+    login_as(user)
     visit root_path
     within 'nav' do
       click_on 'Modelos de Produtos'
@@ -39,7 +55,9 @@ describe 'User sees product models' do
 
   it 'and there isnt any registered products' do
     # Arrange
+    user = User.create!(name: 'Gabriel', email: 'gmkoeb@gmail.com', password: 'password')
     # Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produtos'
     # Assert
