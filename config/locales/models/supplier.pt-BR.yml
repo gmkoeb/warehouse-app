@@ -1,7 +1,9 @@
 pt-BR:
   activerecord:
     models:
-      supplier: 'Fornecedor'
+      supplier: 
+        one: 'Fornecedor'
+        other: 'Fornecedores'
     attributes:
       supplier:
         corporate_name: "Nome corporativo"

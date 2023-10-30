@@ -1,4 +1,4 @@
-<h1>Modelos de Produtos</h1>
+<h1><%= t('activerecord.models.product_model', count: @product_models.count)%></h1>
 <%= link_to 'Cadastrar Novo', new_product_model_path %>
 <% if @product_models.any? %>
   <% @product_models.each do |product_model| %>

@@ -11,15 +11,15 @@ describe 'User visits homepage' do
     expect(page).to have_content 'Galpões & Estoque'
   end
 
-  it 'and sees home button' do
-    # Arrange 
+  it 'cant see back to home link' do
+    # Arrange
 
     # Act
     visit root_path
 
     # Assert
-    expect(page).to have_content 'Home'
-  end
+    expect(page).to_not have_content 'Home'
+  end 
 
   it 'and sees registered warehouses' do
     # Arrange
@@ -57,4 +57,14 @@ describe 'User visits homepage' do
     expect(page).to have_content 'Não existem galpões cadastrados.'
   end
 
+  it 'goes to another page and sees back to home button' do
+    # Arrange
+
+    # Act
+    visit root_path
+    click_on 'Fornecedores'
+
+    # Assert
+    expect(page).to have_content 'Home'
+  end
 end

@@ -17,7 +17,7 @@ describe 'User authenticates' do
     expect(page).not_to have_link 'Entrar'
     expect(page).to have_button 'Sair'
     within 'nav' do
-      expect(page).to have_content 'gmkoeb@gmail.com'
+      expect(page).to have_content 'Gabriel - gmkoeb@gmail.com'
     end
   end
 

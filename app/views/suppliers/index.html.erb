@@ -1,4 +1,4 @@
-<h1>Fornecedores</h1>
+<h1><%= t('activerecord.models.supplier', count: @suppliers.count)%></h1>
 
 <% if @suppliers.empty? %>
 <h2>Não existe nenhum fornecedor cadastrado.</h2>

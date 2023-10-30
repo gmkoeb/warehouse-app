@@ -15,10 +15,9 @@ describe 'User sign up' do
 
     # Assert
     expect(page).to have_content 'Boas vindas! Você realizou seu registro com sucesso.'
-    expect(page).to have_content 'gmkoeb@gmail.com'
+    expect(page).to have_content 'Gabriel Manika - gmkoeb@gmail.com'
     user = User.last
     expect(user.name).to eq 'Gabriel Manika'
-    expect(page).to have_content 'Olá Gabriel'
     expect(page).to have_button 'Sair'
   end
 
