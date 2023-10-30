@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'User view specific supplier detail' do
   it 'and sees additional info' do
     # Arrange
-    Supplier.create(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
+    Supplier.create!(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
                     full_address: "Av Brasil, 1231", city: "São Paulo", state: "SP", email: "logi@tech.com" )
 
     # Act
@@ -25,7 +25,7 @@ describe 'User view specific supplier detail' do
 
   it 'and goes back to homepage by clicking voltar' do
     # Arrange
-    Supplier.create(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
+    Supplier.create!(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
                     full_address: "Av Brasil, 1231", city: "São Paulo", state: "SP", email: "logi@tech.com" )
 
     # Act
@@ -40,7 +40,7 @@ describe 'User view specific supplier detail' do
 
   it 'and goes back to homepage by clicking Home link inside navbar' do
     # Arrange
-    Supplier.create(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
+    Supplier.create!(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
                     full_address: "Av Brasil, 1231", city: "São Paulo", state: "SP", email: "logi@tech.com" )
 
     # Act

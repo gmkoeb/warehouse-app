@@ -17,7 +17,7 @@ describe 'User sees product models' do
     # Arrange
     user = User.create!(name: 'Gabriel', email: 'gmkoeb@gmail.com', password: 'password')
     # Act
-    login_as(user) # Method imported from devise helpers
+    login_as(user) # Method imported from devise helpersrs
     visit root_path
     within 'nav' do
       click_on 'Modelos de Produtos'

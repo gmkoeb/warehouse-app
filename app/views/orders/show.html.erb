@@ -1,0 +1,8 @@
+<h1>Pedido</h1>
+
+<ul>
+  <li>Galpão Destino: <%= @order.warehouse.name %></li>
+  <li>Fornecedor: <%= @order.supplier.brand_name %></li>
+  <li>Usuário Responsável: <%= @order.user.name %> | <%= @order.user.email %> </li>
+  <li>Data Prevista de Entrega: <%= I18n.localize(@order.estimated_delivery_date) %></li>
+</ul>

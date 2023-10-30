@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :product_models, only: [:index, :show, :new, :create]
   
+  resources :orders, only: [:new, :create, :show]
 end

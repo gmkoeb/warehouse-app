@@ -23,7 +23,7 @@ describe 'User removes one warehouse' do
                                   area:60_000, address: 'Rua das Flores, 302', 
                                   cep: '31412', description: 'Galpão localizado na rua das flores na cidade do Rio de Janeiro' )
 
-    warehouse_2 = Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', 
+    warehouse_2 = Warehouse.create!(name: 'Maceio', code: 'MCZ', city: 'Maceio', 
                     area:50_000, address: 'Rua do Aeroporto, 20', 
                     cep: '73521', description: 'Galpão localizado no aeroporto de Maceio.')
     # Act
