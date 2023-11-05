@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   resources :product_models, only: [:index, :show, :new, :create]
   
-  resources :orders, only: [:new, :create, :show]
+  resources :orders, only: [:new, :create, :show, :index] do 
+    get 'search', on: :collection
+  end
 end
