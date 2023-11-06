@@ -1,9 +1,9 @@
-<h1><%= Order.model_name.human %> <%= @order.code%></h1>
-
+<h1>Detalhes do <%= Order.model_name.human %> <%= @order.code%></h1>
 <ul>
   <li><%= Order.human_attribute_name(:warehouse_id) %>: <%= @order.warehouse.full_description %></li>
   <li><%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.brand_name %></li>
   <li><%= Order.human_attribute_name(:user_id) %>: <%= @order.user.description %> </li>
   <li><%= Order.human_attribute_name(:estimated_delivery_date) %>: <%= I18n.localize(@order.estimated_delivery_date) %></li>
-  
 </ul>
+
+<%= link_to 'Editar', edit_order_path(@order) %>

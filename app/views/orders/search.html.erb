@@ -2,8 +2,8 @@
 <% if @orders.present? %>
   <h3> <%= @orders.count %> <%= Order.model_name.human(count: @orders.count).downcase %> <%= t(:found, count: @orders.count) %>% </h3>
   <% @orders.each do |order| %>
-    <h3><%= Order.human_attribute_name(:code)%>: <%= order.code %></h3>
-    <h3><%= Order.human_attribute_name(:warehouse_id)%>: <%= order.warehouse.code %> - <%= order.warehouse.name %></h3>
-    <h3><%= Order.human_attribute_name(:supplier_id)%>: <%= order.supplier.brand_name %></h3>
+    <%= render order %>
   <% end %>
+<%else%>
+  <h2>Não foi possível encontrar nenhum pedido com essas informações.</h2>
 <% end %>  

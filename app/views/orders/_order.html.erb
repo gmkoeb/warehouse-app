@@ -1,0 +1,4 @@
+<h3><%= Order.human_attribute_name(:code)%>: <%= link_to order.code, order %></h3>
+<h3><%= Order.human_attribute_name(:warehouse_id)%>: <%= order.warehouse.code %> - <%= order.warehouse.name %></h3>
+<h3><%= Order.human_attribute_name(:supplier_id)%>: <%= order.supplier.brand_name %></h3>
+<h2>Você ainda não possui nenhum pedido</h2>

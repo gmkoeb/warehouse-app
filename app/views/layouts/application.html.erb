@@ -33,9 +33,11 @@
         <% end %> 
       </nav>
     </header>
-    <div>
-      <%= notice %>
-    </div>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
     <main>
       <%= yield %>
     </main>
