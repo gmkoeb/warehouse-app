@@ -37,6 +37,7 @@ describe 'Usuário vê seus próprios pedidos' do
     # Assert
     expect(page).to have_content first_order.code
     expect(page).to have_content second_order.code
+    expect(page).to have_content "Status: Pendente"
     expect(page).to_not have_content third_order.code
   end
 

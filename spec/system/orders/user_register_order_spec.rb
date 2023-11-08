@@ -43,6 +43,7 @@ describe 'User registers an order' do
     expect(page).to have_content 'Fornecedor: Logitech'
     expect(page).to have_content 'Usuário Responsável: Sergio - sergio@yahoo.com'
     expect(page).to have_content "Data Prevista de Entrega:"
+    expect(page).to have_content "Status: Pendente"
     expect(page).to have_content(I18n.localize(Date.today + 1))
 
   end

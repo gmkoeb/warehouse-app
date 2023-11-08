@@ -45,7 +45,6 @@ describe 'usuário edita um pedido' do
     expect(page).to have_content "Data Prevista de Entrega: #{I18n.localize(Date.tomorrow + 3)}"
   end
 
-  
   it 'caso seja o responsável' do
     # Arrange
     gabriel = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')

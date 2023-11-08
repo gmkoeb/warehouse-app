@@ -4,6 +4,12 @@
   <li><%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.brand_name %></li>
   <li><%= Order.human_attribute_name(:user_id) %>: <%= @order.user.description %> </li>
   <li><%= Order.human_attribute_name(:estimated_delivery_date) %>: <%= I18n.localize(@order.estimated_delivery_date) %></li>
+  <li><%= Order.human_attribute_name(:status) %>: <%= t(@order.status) %> </li>
 </ul>
 
 <%= link_to 'Editar', edit_order_path(@order) %>
+
+<% if @order.pending? %>
+  <%= button_to 'Marcar como ENTREGUE', delivered_order_path(@order) %>
+  <%= button_to 'Marcar como CANCELADO', canceled_order_path(@order) %>
+<% end %>

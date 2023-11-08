@@ -19,7 +19,7 @@ describe 'User sees suppliers' do
     Supplier.create!(corporate_name: "Logitech LTDA", brand_name: "Logitech", registration_number: '43132531',
                     full_address: "Av Brasil, 1231", city: "São Paulo", state: "SP", email: "logi@tech.com" )
     Supplier.create!(corporate_name: "Red Dragon Eletronics", brand_name: "RedDragon", registration_number: '03132531',
-    full_address: "China Town, 1231", city: "Nova Iorque", state: "NY", email: "red@dragon.com" )
+                     full_address: "China Town, 1231", city: "Nova Iorque", state: "NY", email: "red@dragon.com" )
     # Act
     visit root_path
     click_on 'Fornecedores'
