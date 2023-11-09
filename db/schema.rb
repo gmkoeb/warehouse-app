@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_08_182713) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_09_120833) do
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -20,6 +20,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_182713) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "product_model_id", null: false
+    t.integer "order_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["product_model_id"], name: "index_order_items_on_product_model_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -92,6 +102,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_182713) do
     t.index ["slug"], name: "index_warehouses_on_slug", unique: true
   end
 
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "product_models"
   add_foreign_key "orders", "suppliers"
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "warehouses"

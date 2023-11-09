@@ -43,15 +43,15 @@ describe 'Usuário vê seus próprios pedidos' do
 
   it 'e visita um pedido' do
     # Arrange
-    gabriel = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
+    user = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     warehouse = Warehouse.create!(name: 'Guarulhos Aeroporto', code: 'GRU', city: 'Guarulhos', 
-                                         area:60_000, address: 'Rua do aeroporto, 3102', 
-                                         cep: '31412', description: 'Galpão localizado no aeroporto de Guarulhos' )
+                                  area:60_000, address: 'Rua do aeroporto, 3102', 
+                                  cep: '31412', description: 'Galpão localizado no aeroporto de Guarulhos' )
     supplier = Supplier.create!(corporate_name: 'Razer Eletronics', brand_name: 'Razer', registration_number: '131341', 
                                 full_address: 'Wall Street, 341', city: 'New York', state: 'NY', email: 'razer@gmail.com')
-    order = Order.create!(user: gabriel, warehouse: warehouse, supplier: supplier, estimated_delivery_date: Date.tomorrow)                            
+    order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, estimated_delivery_date: Date.tomorrow)                            
     # Act
-    login_as(gabriel)
+    login_as(user)
     visit root_path 
     click_on 'Meus Pedidos'                                    
     click_on order.code
@@ -69,8 +69,8 @@ describe 'Usuário vê seus próprios pedidos' do
     gabriel = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     joao = User.create!(name: 'João', email: 'joao@gmail.com', password: 'password')
     warehouse = Warehouse.create!(name: 'Guarulhos Aeroporto', code: 'GRU', city: 'Guarulhos', 
-                                          area:60_000, address: 'Rua do aeroporto, 3102', 
-                                          cep: '31412', description: 'Galpão localizado no aeroporto de Guarulhos' )
+                                  area:60_000, address: 'Rua do aeroporto, 3102', 
+                                  cep: '31412', description: 'Galpão localizado no aeroporto de Guarulhos' )
     supplier = Supplier.create!(corporate_name: 'Razer Eletronics', brand_name: 'Razer', registration_number: '131341', 
                                 full_address: 'Wall Street, 341', city: 'New York', state: 'NY', email: 'razer@gmail.com')
     order = Order.create!(user: gabriel, warehouse: warehouse, supplier: supplier, estimated_delivery_date: Date.tomorrow)                            
@@ -82,4 +82,30 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(current_path).to eq root_path
     expect(page).to have_content 'Você não possui acesso a este pedido.'
   end
+
+  it 'e vê itens do pedido' do
+    # Arrange
+    user = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
+    warehouse = Warehouse.create!(name: 'Guarulhos Aeroporto', code: 'GRU', city: 'Guarulhos', 
+                                  area:60_000, address: 'Rua do aeroporto, 3102', 
+                                  cep: '31412', description: 'Galpão localizado no aeroporto de Guarulhos' )
+    supplier = Supplier.create!(corporate_name: 'Razer Eletronics', brand_name: 'Razer', registration_number: '131341', 
+                                full_address: 'Wall Street, 341', city: 'New York', state: 'NY', email: 'razer@gmail.com')
+    product_a = ProductModel.create!(name: "Produto A", weight: 1, width: 10, height: 20, depth: 30, sku: 'RZER32A', supplier: supplier)
+    product_b = ProductModel.create!(name: "Produto B", weight: 1, width: 10, height: 20, depth: 30, sku: 'RZER122XB', supplier: supplier)
+    product_c = ProductModel.create!(name: "Produto C", weight: 1, width: 10, height: 20, depth: 30, sku: 'RZER32XBC', supplier: supplier)
+    order = Order.create!(user: user, warehouse: warehouse, supplier: supplier, estimated_delivery_date: Date.tomorrow)      
+    OrderItem.create!(product_model: product_a, order: order, quantity: 435)
+    OrderItem.create!(product_model: product_b, order: order, quantity: 212)
+    # Act
+    login_as(user)
+    visit root_path
+    click_on 'Meus Pedidos'
+    click_on order.code
+    # Assert
+    expect(page).to have_content 'Itens do Pedido'
+    expect(page).to have_content '435 x Produto A'
+    expect(page).to have_content '212 x Produto B'
+  end
+
 end

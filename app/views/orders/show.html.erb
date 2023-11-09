@@ -6,10 +6,14 @@
   <li><%= Order.human_attribute_name(:estimated_delivery_date) %>: <%= I18n.localize(@order.estimated_delivery_date) %></li>
   <li><%= Order.human_attribute_name(:status) %>: <%= t(@order.status) %> </li>
 </ul>
-
-<%= link_to 'Editar', edit_order_path(@order) %>
-
+<h2>Itens do Pedido</h2>
+<%= link_to 'Adicionar Item', new_order_order_item_path(@order) %>
+<% @order.order_items.each do |item| %>
+  <%= item.quantity %> x <%= item.product_model.name %>
+<% end %>
 <% if @order.pending? %>
   <%= button_to 'Marcar como ENTREGUE', delivered_order_path(@order) %>
   <%= button_to 'Marcar como CANCELADO', canceled_order_path(@order) %>
 <% end %>
+
+<%= link_to 'Editar', edit_order_path(@order) %>
