@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Usuário vê seus próprios pedidos' do
-  it 'e deve estar autenticado' do
+describe 'User sees his own orders' do
+  it 'and must be authenticated' do
     # Arrange
     # Act
     visit root_path
@@ -10,7 +10,7 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(current_path).to eq new_user_session_path
   end
 
-  it 'e não vê outros pedidos' do
+  it 'and cant see other orders' do
     # Arrange
     gabriel = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
 
@@ -41,7 +41,7 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(page).to_not have_content third_order.code
   end
 
-  it 'e visita um pedido' do
+  it 'and visits an order' do
     # Arrange
     user = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     warehouse = Warehouse.create!(name: 'Guarulhos Aeroporto', code: 'GRU', city: 'Guarulhos', 
@@ -64,7 +64,7 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(page).to have_content "Data Prevista de Entrega: #{formatted_date}" 
   end
 
-  it 'e não visita pedidos de outros usuários' do
+  it 'and cant visit other users orders' do
     # Arrange
     gabriel = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     joao = User.create!(name: 'João', email: 'joao@gmail.com', password: 'password')
@@ -83,7 +83,7 @@ describe 'Usuário vê seus próprios pedidos' do
     expect(page).to have_content 'Você não possui acesso a este pedido.'
   end
 
-  it 'e vê itens do pedido' do
+  it 'and sees order details' do
     # Arrange
     user = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     warehouse = Warehouse.create!(name: 'Guarulhos Aeroporto', code: 'GRU', city: 'Guarulhos', 

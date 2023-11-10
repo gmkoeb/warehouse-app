@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'usuário busca por um pedido' do
+describe 'User searches for an order' do
 
-  it 'a partir do menu' do
+  it 'from the navigation menu' do
     # Arrange
     user = User.create(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     login_as(user)
@@ -25,7 +25,7 @@ describe 'usuário busca por um pedido' do
     expect(page).to_not have_button 'Buscar'
   end
 
-  it 'e encontra o pedido' do
+  it 'and finds the order' do
     # Arrange
     user = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     warehouse = Warehouse.create!(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', 
@@ -47,7 +47,7 @@ describe 'usuário busca por um pedido' do
     expect(page).to have_content "Fornecedor: Razer"
   end
 
-  it 'encontra múltiplos pedidos' do
+  it 'and finds multiple orders' do
     # Arrange
     user = User.create!(name: 'Gabriel', email: 'gabriel@gmail.com', password: 'password')
     first_warehouse = Warehouse.create!(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', 
