@@ -3,7 +3,8 @@ class WarehousesController < ApplicationController
   before_action :warehouse_params, only: [:create, :update]
 
   def show
-    @stocks = @warehouse.stock_products.group(:product_model).count
+    @stocks = @warehouse.stock_products.where.missing(:stock_product_destination).group(:product_model).count
+    @product_models = ProductModel.joins(:stock_products).uniq
   end
 
   def new

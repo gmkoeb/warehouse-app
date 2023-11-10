@@ -6,6 +6,7 @@ class ProductModel < ApplicationRecord
   end
   belongs_to :supplier
   has_many :order_items
+  has_many :stock_products
   has_many :orders, through: :order_items
   validates :name, :sku, presence: true
 end
