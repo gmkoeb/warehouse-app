@@ -48,7 +48,7 @@ describe 'User registers an order' do
 
   end
 
-  it 'without success' do
+  it 'with missing data' do
     # Arrange
     user = User.create!(name: 'Sergio', email: 'sergio@yahoo.com', password: '123456789')
 
