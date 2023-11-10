@@ -4,6 +4,11 @@ class StockProduct < ApplicationRecord
   belongs_to :product_model
   has_one :stock_product_destination
   before_validation :generates_serial_number, on: :create
+
+  def available?
+    stock_product_destination.nil?
+  end
+
   private
 
   def generates_serial_number
